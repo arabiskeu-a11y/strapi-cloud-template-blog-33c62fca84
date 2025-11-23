@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "publishing_houses",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "publishing-house",
+    "pluralName": "publishing-houses",
+    "displayName": "Publishing House"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,21 +24,12 @@
       },
       "required": true
     },
-    "slug": {
+    "Slug": {
       "type": "uid",
-      "targetField": "name",
+      "targetField": "Name",
       "required": true
     },
-    "bio": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
-    "photo": {
+    "Logo": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -51,6 +42,22 @@
         "images",
         "files"
       ]
+    },
+    "link_website": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Description": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

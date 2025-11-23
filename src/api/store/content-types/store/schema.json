@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "stores",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "ProductName": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,21 +24,27 @@
       },
       "required": true
     },
-    "slug": {
+    "Slug": {
       "type": "uid",
-      "targetField": "name",
       "required": true
     },
-    "bio": {
-      "type": "blocks",
+    "Short_Description": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "required": true
+      }
     },
-    "photo": {
+    "Price": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Images": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -51,6 +57,23 @@
         "images",
         "files"
       ]
+    },
+    "Is_Available": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "default": true
+    },
+    "Store_link": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }

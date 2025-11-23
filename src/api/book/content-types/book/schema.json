@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "books",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "Book"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -26,11 +26,33 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name",
+      "targetField": "title",
       "required": true
     },
-    "bio": {
+    "description": {
       "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "cover": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "author_name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -38,19 +60,14 @@
       },
       "required": true
     },
-    "photo": {
-      "type": "media",
+    "book_link": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "required": true
     }
   }
 }

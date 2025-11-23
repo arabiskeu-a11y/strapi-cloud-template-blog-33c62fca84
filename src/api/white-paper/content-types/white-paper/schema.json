@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "white_papers",
+  "info": {
+    "singularName": "white-paper",
+    "pluralName": "white-papers",
+    "displayName": "white-papers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    }
+  }
+}

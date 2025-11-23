@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "authors",
+  "kind": "singleType",
+  "collectionName": "homepages",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "hero_title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,13 +24,8 @@
       },
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "name",
-      "required": true
-    },
-    "bio": {
-      "type": "blocks",
+    "hero_subtitle": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -38,19 +33,16 @@
       },
       "required": true
     },
-    "photo": {
-      "type": "media",
+    "footer_links": {
+      "type": "component",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "component": "shared.url",
+      "repeatable": true,
+      "required": false
     }
   }
 }

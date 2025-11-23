@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "blogs",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "blog"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -26,10 +26,10 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name",
+      "targetField": "title",
       "required": true
     },
-    "bio": {
+    "content": {
       "type": "blocks",
       "pluginOptions": {
         "i18n": {
@@ -38,7 +38,7 @@
       },
       "required": true
     },
-    "photo": {
+    "image": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -46,11 +46,19 @@
         }
       },
       "multiple": false,
-      "required": true,
       "allowedTypes": [
         "images",
         "files"
       ]
+    },
+    "author_name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Khalil AlSamadi"
     }
   }
 }
