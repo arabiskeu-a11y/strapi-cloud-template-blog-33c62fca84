@@ -43,14 +43,6 @@
         "files"
       ]
     },
-    "link_website": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "Description": {
       "type": "blocks",
       "pluginOptions": {
