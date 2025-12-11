@@ -16,6 +16,7 @@
     "postbuild": "echo 'Build completed successfully'"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^6.0.3",
     "@strapi/plugin-cloud": "5.31.0",
     "@strapi/plugin-users-permissions": "5.31.0",
     "@strapi/strapi": "^5.31.2",

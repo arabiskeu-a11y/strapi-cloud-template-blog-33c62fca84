@@ -29,15 +29,6 @@
       "targetField": "title",
       "required": true
     },
-    "content": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
     "image": {
       "type": "media",
       "pluginOptions": {
@@ -59,6 +50,19 @@
         }
       },
       "default": "Khalil AlSamadi"
+    },
+    "new_content": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
     }
   }
 }

@@ -6,8 +6,9 @@
 // ═══════════════════════════════════════════════════════════
 
 // Next.js: استخدم NEXT_PUBLIC_
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337/api';
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337/api";
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 // React (Vite): استخدم VITE_
 // const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337/api';
@@ -24,12 +25,12 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'
  */
 function getStrapiMedia(url) {
   if (!url) return null;
-  
+
   // إذا كان رابط كامل (من ImageKit مثلاً)
-  if (url.startsWith('http') || url.startsWith('//')) {
+  if (url.startsWith("http") || url.startsWith("//")) {
     return url;
   }
-  
+
   // إذا كان رابط نسبي من Strapi
   return `${STRAPI_URL}${url}`;
 }
@@ -43,7 +44,7 @@ function getStrapiMedia(url) {
 async function fetchAPI(path, options = {}) {
   const defaultOptions = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
 
@@ -53,18 +54,18 @@ async function fetchAPI(path, options = {}) {
   };
 
   const requestUrl = `${API_URL}${path}`;
-  
+
   try {
     const response = await fetch(requestUrl, mergedOptions);
-    
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Fetch API Error:', error);
+    console.error("Fetch API Error:", error);
     throw error;
   }
 }
@@ -77,8 +78,8 @@ async function fetchAPI(path, options = {}) {
 // 1. جلب جميع المدونات (Blogs)
 // ------------------------------------
 export async function getAllBlogs() {
-  const data = await fetchAPI('/blogs', {
-    method: 'GET',
+  const data = await fetchAPI("/blogs", {
+    method: "GET",
   });
   return data;
 }
@@ -88,7 +89,7 @@ export async function getAllBlogs() {
 // ------------------------------------
 export async function getBlogById(id) {
   const data = await fetchAPI(`/blogs/${id}`, {
-    method: 'GET',
+    method: "GET",
   });
   return data;
 }
@@ -97,8 +98,8 @@ export async function getBlogById(id) {
 // 3. جلب جميع الكتب (Books)
 // ------------------------------------
 export async function getAllBooks() {
-  const data = await fetchAPI('/books?populate=*', {
-    method: 'GET',
+  const data = await fetchAPI("/books?populate=*", {
+    method: "GET",
   });
   return data;
 }
@@ -108,7 +109,7 @@ export async function getAllBooks() {
 // ------------------------------------
 export async function getBookById(id) {
   const data = await fetchAPI(`/books/${id}?populate=deep`, {
-    method: 'GET',
+    method: "GET",
   });
   return data;
 }
@@ -117,8 +118,8 @@ export async function getBookById(id) {
 // 5. جلب معلومات الكاتب (Author)
 // ------------------------------------
 export async function getAuthorInfo() {
-  const data = await fetchAPI('/authors?populate=*', {
-    method: 'GET',
+  const data = await fetchAPI("/authors?populate=*", {
+    method: "GET",
   });
   return data;
 }
@@ -127,8 +128,8 @@ export async function getAuthorInfo() {
 // 6. جلب الأوراق البحثية (White Papers)
 // ------------------------------------
 export async function getAllWhitePapers() {
-  const data = await fetchAPI('/white-papers?populate=*', {
-    method: 'GET',
+  const data = await fetchAPI("/white-papers?populate=*", {
+    method: "GET",
   });
   return data;
 }
@@ -137,8 +138,8 @@ export async function getAllWhitePapers() {
 // 7. جلب محتوى الصفحة الرئيسية
 // ------------------------------------
 export async function getHomepage() {
-  const data = await fetchAPI('/homepage?populate=deep', {
-    method: 'GET',
+  const data = await fetchAPI("/homepage?populate=deep", {
+    method: "GET",
   });
   return data;
 }
@@ -150,7 +151,7 @@ export async function searchBlogs(query) {
   const data = await fetchAPI(
     `/blogs?filters[title][$containsi]=${encodeURIComponent(query)}`,
     {
-      method: 'GET',
+      method: "GET",
     }
   );
   return data;
@@ -163,7 +164,7 @@ export async function getBlogsWithPagination(page = 1, pageSize = 10) {
   const data = await fetchAPI(
     `/blogs?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
     {
-      method: 'GET',
+      method: "GET",
     }
   );
   return data;
@@ -172,9 +173,9 @@ export async function getBlogsWithPagination(page = 1, pageSize = 10) {
 // ------------------------------------
 // 10. جلب المدونات مع Sorting
 // ------------------------------------
-export async function getBlogsSorted(sortBy = 'publishedAt:desc') {
+export async function getBlogsSorted(sortBy = "publishedAt:desc") {
   const data = await fetchAPI(`/blogs?sort=${sortBy}&populate=*`, {
-    method: 'GET',
+    method: "GET",
   });
   return data;
 }
@@ -266,19 +267,19 @@ function BlogsList() {
  * تسجيل دخول مستخدم
  */
 export async function login(identifier, password) {
-  const data = await fetchAPI('/auth/local', {
-    method: 'POST',
+  const data = await fetchAPI("/auth/local", {
+    method: "POST",
     body: JSON.stringify({
       identifier, // email or username
       password,
     }),
   });
-  
+
   // حفظ JWT في localStorage
   if (data.jwt) {
-    localStorage.setItem('jwt', data.jwt);
+    localStorage.setItem("jwt", data.jwt);
   }
-  
+
   return data;
 }
 
@@ -286,8 +287,8 @@ export async function login(identifier, password) {
  * Fetch مع Authentication
  */
 export async function fetchAuthenticatedAPI(path, options = {}) {
-  const jwt = localStorage.getItem('jwt');
-  
+  const jwt = localStorage.getItem("jwt");
+
   const authenticatedOptions = {
     ...options,
     headers: {
@@ -295,7 +296,7 @@ export async function fetchAuthenticatedAPI(path, options = {}) {
       Authorization: `Bearer ${jwt}`,
     },
   };
-  
+
   return fetchAPI(path, authenticatedOptions);
 }
 
@@ -303,12 +304,7 @@ export async function fetchAuthenticatedAPI(path, options = {}) {
 // 📤 Export للاستخدام
 // ═══════════════════════════════════════════════════════════
 
-export {
-  API_URL,
-  STRAPI_URL,
-  getStrapiMedia,
-  fetchAPI,
-};
+export { API_URL, STRAPI_URL, getStrapiMedia, fetchAPI };
 
 // ═══════════════════════════════════════════════════════════
 // 📖 ملاحظات مهمة
@@ -319,24 +315,24 @@ export {
  *    - populate=* : جلب جميع العلاقات من المستوى الأول
  *    - populate=deep : جلب جميع العلاقات (عميق)
  *    - populate[image]=* : جلب علاقة محددة
- * 
+ *
  * 2. Filters:
  *    - $eq : يساوي
  *    - $ne : لا يساوي
  *    - $containsi : يحتوي (case-insensitive)
  *    - $gt : أكبر من
  *    - $lt : أقل من
- * 
+ *
  * 3. Sorting:
  *    - sort=title:asc : ترتيب تصاعدي
  *    - sort=createdAt:desc : ترتيب تنازلي
- * 
+ *
  * 4. Pagination:
  *    - pagination[page]=1
  *    - pagination[pageSize]=10
  *    - pagination[start]=0
  *    - pagination[limit]=10
- * 
+ *
  * 5. هيكل البيانات من Strapi:
  *    {
  *      data: [...],      // المحتوى

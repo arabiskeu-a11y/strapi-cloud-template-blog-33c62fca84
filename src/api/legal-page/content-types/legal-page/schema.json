@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "white_papers",
+  "kind": "singleType",
+  "collectionName": "legal_pages",
   "info": {
-    "singularName": "white-paper",
-    "pluralName": "white-papers",
-    "displayName": "white-papers"
+    "singularName": "legal-page",
+    "pluralName": "legal-pages",
+    "displayName": "LegalPage"
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +15,7 @@
     }
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
-    "new_content": {
+    "TermsOfService": {
       "type": "customField",
       "pluginOptions": {
         "i18n": {
@@ -32,9 +23,30 @@
         }
       },
       "customField": "plugin::ckeditor5.CKEditor",
-      "required": true,
       "options": {
         "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "CookiePolicy": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "CookieBannerMessage": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
       }
     }
   }
