@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedDetails extends Struct.ComponentSchema {
+  collectionName: 'components_shared_details';
+  info: {
+    displayName: 'details';
+  };
+  attributes: {
+    detail: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedInterface extends Struct.ComponentSchema {
   collectionName: 'components_shared_interfaces';
   info: {
@@ -41,14 +51,8 @@ export interface SharedSubscriptions extends Struct.ComponentSchema {
     displayName: 'subscriptions';
   };
   attributes: {
-    subscriptions_details: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    subscriptions_details: Schema.Attribute.Component<'shared.details', true> &
+      Schema.Attribute.Required;
     subscriptions_link: Schema.Attribute.String & Schema.Attribute.Required;
     subscriptions_price: Schema.Attribute.String & Schema.Attribute.Required;
     subscriptions_type: Schema.Attribute.String & Schema.Attribute.Required;
@@ -70,6 +74,7 @@ export interface SharedUrl extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.details': SharedDetails;
       'shared.interface': SharedInterface;
       'shared.products': SharedProducts;
       'shared.subscriptions': SharedSubscriptions;

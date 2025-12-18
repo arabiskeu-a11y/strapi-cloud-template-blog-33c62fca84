@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_details",
+  "info": {
+    "displayName": "details"
+  },
+  "options": {},
+  "attributes": {
+    "detail": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
