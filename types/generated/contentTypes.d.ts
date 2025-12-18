@@ -483,7 +483,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
-    displayName: 'blog';
+    displayName: 'Blog';
     pluralName: 'blogs';
     singularName: 'blog';
   };
@@ -673,7 +673,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
 export interface ApiImageSliderImageSlider extends Struct.CollectionTypeSchema {
   collectionName: 'image_sliders';
   info: {
-    displayName: 'ImageSlider';
+    displayName: 'Image Slider';
     pluralName: 'image-sliders';
     singularName: 'image-slider';
   };
@@ -863,7 +863,7 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
 export interface ApiStoreStore extends Struct.CollectionTypeSchema {
   collectionName: 'stores';
   info: {
-    displayName: 'Store';
+    displayName: 'Socity';
     pluralName: 'stores';
     singularName: 'store';
   };
@@ -879,29 +879,16 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Images: Schema.Attribute.Media<'images' | 'files'> &
+    interface: Schema.Attribute.Component<'shared.interface', false> &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Is_Available: Schema.Attribute.Boolean &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::store.store'>;
-    Price: Schema.Attribute.Decimal &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    ProductName: Schema.Attribute.String &
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::store.store'>;
+    products: Schema.Attribute.Component<'shared.products', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -909,17 +896,10 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    Short_Description: Schema.Attribute.String &
+    subscriptions: Schema.Attribute.Component<'shared.subscriptions', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    Slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    Store_link: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -931,7 +911,7 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
 export interface ApiWhitePaperWhitePaper extends Struct.CollectionTypeSchema {
   collectionName: 'white_papers';
   info: {
-    displayName: 'white-papers';
+    displayName: 'White Paper';
     pluralName: 'white-papers';
     singularName: 'white-paper';
   };

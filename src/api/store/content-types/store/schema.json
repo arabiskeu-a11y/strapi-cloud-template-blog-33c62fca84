@@ -4,7 +4,7 @@
   "info": {
     "singularName": "store",
     "pluralName": "stores",
-    "displayName": "Store"
+    "displayName": "Socity"
   },
   "options": {
     "draftAndPublish": true
@@ -15,65 +15,37 @@
     }
   },
   "attributes": {
-    "ProductName": {
-      "type": "string",
+    "interface": {
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "component": "shared.interface",
+      "repeatable": false,
       "required": true
     },
-    "Slug": {
-      "type": "uid",
+    "products": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.products",
+      "repeatable": true,
       "required": true
     },
-    "Short_Description": {
-      "type": "string",
+    "subscriptions": {
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
-    },
-    "Price": {
-      "type": "decimal",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "Images": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
       },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
-    "Is_Available": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "default": true
-    },
-    "Store_link": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "component": "shared.subscriptions",
+      "repeatable": true
     }
   }
 }

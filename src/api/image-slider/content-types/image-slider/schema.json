@@ -4,7 +4,7 @@
   "info": {
     "singularName": "image-slider",
     "pluralName": "image-sliders",
-    "displayName": "ImageSlider"
+    "displayName": "Image Slider"
   },
   "options": {
     "draftAndPublish": true

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_products",
+  "info": {
+    "displayName": "products"
+  },
+  "options": {},
+  "attributes": {
+    "product_name": {
+      "type": "string",
+      "required": true
+    },
+    "product_description": {
+      "type": "text",
+      "required": true
+    },
+    "product_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "product_link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_subscriptions",
+  "info": {
+    "displayName": "subscriptions"
+  },
+  "options": {},
+  "attributes": {
+    "subscriptions_type": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptions_details": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "subscriptions_price": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptions_link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
