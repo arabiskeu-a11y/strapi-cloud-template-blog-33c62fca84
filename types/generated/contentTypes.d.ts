@@ -644,6 +644,13 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    join_us_link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -902,6 +909,42 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTitlesAndSubtitlesTitlesAndSubtitles
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'titles_and_subtitless';
+  info: {
+    displayName: 'Titles And Subtitles';
+    pluralName: 'titles-and-subtitless';
+    singularName: 'titles-and-subtitles';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    book_hero_subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    book_hero_title: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::titles-and-subtitles.titles-and-subtitles'
+    > &
+      Schema.Attribute.Private;
+    product_hero_subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    product_hero_title: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    subscriptions_hero_subtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required;
+    subscriptions_hero_title: Schema.Attribute.String &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1478,6 +1521,7 @@ declare module '@strapi/strapi' {
       'api::publishing-house.publishing-house': ApiPublishingHousePublishingHouse;
       'api::question.question': ApiQuestionQuestion;
       'api::store.store': ApiStoreStore;
+      'api::titles-and-subtitles.titles-and-subtitles': ApiTitlesAndSubtitlesTitlesAndSubtitles;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

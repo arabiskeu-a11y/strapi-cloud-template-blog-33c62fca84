@@ -66,6 +66,15 @@
         }
       },
       "required": true
+    },
+    "join_us_link": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

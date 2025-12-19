@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "titles_and_subtitless",
+  "info": {
+    "singularName": "titles-and-subtitles",
+    "pluralName": "titles-and-subtitless",
+    "displayName": "Titles And Subtitles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "book_hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "book_hero_subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "product_hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "product_hero_subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "subscriptions_hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptions_hero_subtitle": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
