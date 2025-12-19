@@ -915,13 +915,13 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTitlesAndSubtitlesTitlesAndSubtitles
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'titles_and_subtitless';
+export interface ApiTitleAndSubtitleTitleAndSubtitle
+  extends Struct.SingleTypeSchema {
+  collectionName: 'title_and_subtitles';
   info: {
-    displayName: 'Titles And Subtitles';
-    pluralName: 'titles-and-subtitless';
-    singularName: 'titles-and-subtitles';
+    displayName: 'Title And Subtitle';
+    pluralName: 'title-and-subtitles';
+    singularName: 'title-and-subtitle';
   };
   options: {
     draftAndPublish: true;
@@ -952,7 +952,7 @@ export interface ApiTitlesAndSubtitlesTitlesAndSubtitles
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::titles-and-subtitles.titles-and-subtitles'
+      'api::title-and-subtitle.title-and-subtitle'
     >;
     product_hero_subtitle: Schema.Attribute.Text &
       Schema.Attribute.Required &
@@ -1559,7 +1559,7 @@ declare module '@strapi/strapi' {
       'api::publishing-house.publishing-house': ApiPublishingHousePublishingHouse;
       'api::question.question': ApiQuestionQuestion;
       'api::store.store': ApiStoreStore;
-      'api::titles-and-subtitles.titles-and-subtitles': ApiTitlesAndSubtitlesTitlesAndSubtitles;
+      'api::title-and-subtitle.title-and-subtitle': ApiTitleAndSubtitleTitleAndSubtitle;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

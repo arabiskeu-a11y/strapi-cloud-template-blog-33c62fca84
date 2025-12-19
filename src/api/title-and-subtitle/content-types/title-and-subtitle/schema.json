@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "titles_and_subtitless",
+  "kind": "singleType",
+  "collectionName": "title_and_subtitles",
   "info": {
-    "singularName": "titles-and-subtitles",
-    "pluralName": "titles-and-subtitless",
-    "displayName": "Titles And Subtitles"
+    "singularName": "title-and-subtitle",
+    "pluralName": "title-and-subtitles",
+    "displayName": "Title And Subtitle"
   },
   "options": {
     "draftAndPublish": true
