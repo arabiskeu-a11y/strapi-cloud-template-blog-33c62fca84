@@ -886,6 +886,13 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    EmbedSection: Schema.Attribute.Component<'shared.embed-section', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     interface: Schema.Attribute.Component<'shared.interface', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

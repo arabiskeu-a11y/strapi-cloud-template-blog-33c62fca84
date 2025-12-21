@@ -46,6 +46,17 @@
       },
       "component": "shared.subscriptions",
       "repeatable": true
+    },
+    "EmbedSection": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.embed-section",
+      "repeatable": true,
+      "required": true
     }
   }
 }

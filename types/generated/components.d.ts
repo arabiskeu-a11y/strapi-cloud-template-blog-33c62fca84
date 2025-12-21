@@ -10,6 +10,17 @@ export interface SharedDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedEmbedSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_embed_sections';
+  info: {
+    displayName: 'EmbedSection';
+  };
+  attributes: {
+    code: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedInterface extends Struct.ComponentSchema {
   collectionName: 'components_shared_interfaces';
   info: {
@@ -75,6 +86,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.details': SharedDetails;
+      'shared.embed-section': SharedEmbedSection;
       'shared.interface': SharedInterface;
       'shared.products': SharedProducts;
       'shared.subscriptions': SharedSubscriptions;
