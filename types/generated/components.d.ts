@@ -17,7 +17,6 @@ export interface SharedEmbedSection extends Struct.ComponentSchema {
   };
   attributes: {
     code: Schema.Attribute.Text & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

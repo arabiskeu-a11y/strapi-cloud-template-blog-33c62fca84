@@ -47,7 +47,7 @@
       "component": "shared.subscriptions",
       "repeatable": true
     },
-    "EmbedSection": {
+    "Redbubble": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
@@ -55,8 +55,7 @@
         }
       },
       "component": "shared.embed-section",
-      "repeatable": true,
-      "required": true
+      "repeatable": false
     }
   }
 }

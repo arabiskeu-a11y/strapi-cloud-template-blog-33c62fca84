@@ -605,6 +605,41 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCandlyCandly extends Struct.CollectionTypeSchema {
+  collectionName: 'candlies';
+  info: {
+    displayName: 'Candly';
+    pluralName: 'candlies';
+    singularName: 'candly';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    candly_code: Schema.Attribute.Component<'shared.embed-section', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::candly.candly'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -886,13 +921,6 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    EmbedSection: Schema.Attribute.Component<'shared.embed-section', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     interface: Schema.Attribute.Component<'shared.interface', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -910,6 +938,12 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    Redbubble: Schema.Attribute.Component<'shared.embed-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     subscriptions: Schema.Attribute.Component<'shared.subscriptions', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1560,6 +1594,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
       'api::book.book': ApiBookBook;
+      'api::candly.candly': ApiCandlyCandly;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::image-slider.image-slider': ApiImageSliderImageSlider;
       'api::legal-page.legal-page': ApiLegalPageLegalPage;
