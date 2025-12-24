@@ -23,7 +23,7 @@
         }
       },
       "component": "shared.book-section",
-      "repeatable": true,
+      "repeatable": false,
       "required": true
     }
   }

@@ -558,7 +558,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    book_section: Schema.Attribute.Component<'shared.book-section', true> &
+    book_section: Schema.Attribute.Component<'shared.book-section', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -577,7 +577,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCandlyCandly extends Struct.CollectionTypeSchema {
+export interface ApiCandlyCandly extends Struct.SingleTypeSchema {
   collectionName: 'candlies';
   info: {
     displayName: 'Candly';
@@ -874,7 +874,7 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiStoreStore extends Struct.CollectionTypeSchema {
+export interface ApiStoreStore extends Struct.SingleTypeSchema {
   collectionName: 'stores';
   info: {
     displayName: 'Socity';
@@ -923,80 +923,6 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
       'shared.subscription-section',
       false
     > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTitleAndSubtitleTitleAndSubtitle
-  extends Struct.SingleTypeSchema {
-  collectionName: 'title_and_subtitles';
-  info: {
-    displayName: 'Title And Subtitle';
-    pluralName: 'title-and-subtitles';
-    singularName: 'title-and-subtitle';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    book_hero_subtitle: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    book_hero_title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::title-and-subtitle.title-and-subtitle'
-    >;
-    product_hero_subtitle: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product_hero_title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    subscriptions_hero_subtitle: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    subscriptions_hero_title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1580,7 +1506,6 @@ declare module '@strapi/strapi' {
       'api::publishing-house.publishing-house': ApiPublishingHousePublishingHouse;
       'api::question.question': ApiQuestionQuestion;
       'api::store.store': ApiStoreStore;
-      'api::title-and-subtitle.title-and-subtitle': ApiTitleAndSubtitleTitleAndSubtitle;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
