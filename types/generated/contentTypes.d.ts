@@ -559,6 +559,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
   };
   attributes: {
     book_section: Schema.Attribute.Component<'shared.book-section', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -905,6 +906,7 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
       'shared.product-section',
       false
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

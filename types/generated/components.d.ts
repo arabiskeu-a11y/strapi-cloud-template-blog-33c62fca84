@@ -53,14 +53,7 @@ export interface SharedInterface extends Struct.ComponentSchema {
     displayName: 'Interface';
   };
   attributes: {
-    hero_subtitle: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    hero_subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
     hero_title: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;

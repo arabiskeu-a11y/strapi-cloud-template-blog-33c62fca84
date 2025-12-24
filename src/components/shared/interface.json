@@ -10,11 +10,7 @@
       "required": true
     },
     "hero_subtitle": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      },
+      "type": "text",
       "required": true
     },
     "image": {
