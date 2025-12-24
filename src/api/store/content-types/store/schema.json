@@ -26,26 +26,15 @@
       "repeatable": false,
       "required": true
     },
-    "products": {
+    "product_section": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.products",
-      "repeatable": true,
-      "required": true
-    },
-    "subscriptions": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.subscriptions",
-      "repeatable": true
+      "component": "shared.product-section",
+      "repeatable": false
     },
     "Redbubble": {
       "type": "component",
@@ -56,6 +45,17 @@
       },
       "component": "shared.embed-section",
       "repeatable": false
+    },
+    "subscriptions_section": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.subscription-section",
+      "repeatable": false,
+      "required": true
     }
   }
 }

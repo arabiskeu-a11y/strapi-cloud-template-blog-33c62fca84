@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_books",
+  "info": {
+    "displayName": "books"
+  },
+  "options": {},
+  "attributes": {
+    "book_title": {
+      "type": "string",
+      "required": true
+    },
+    "book_description": {
+      "type": "text",
+      "required": true
+    },
+    "book_cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "author_name": {
+      "type": "string",
+      "required": true
+    },
+    "book_link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

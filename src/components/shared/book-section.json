@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_book_sections",
+  "info": {
+    "displayName": "book section"
+  },
+  "options": {},
+  "attributes": {
+    "hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "hero_subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "books": {
+      "type": "component",
+      "component": "shared.books",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

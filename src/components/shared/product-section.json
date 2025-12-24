@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_product_sections",
+  "info": {
+    "displayName": "product section"
+  },
+  "options": {},
+  "attributes": {
+    "product_hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "product_hero_subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "products": {
+      "type": "component",
+      "component": "shared.products",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,5 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedBookSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_book_sections';
+  info: {
+    displayName: 'book section';
+  };
+  attributes: {
+    books: Schema.Attribute.Component<'shared.books', true>;
+    hero_subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    hero_title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedBooks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_books';
+  info: {
+    displayName: 'books';
+  };
+  attributes: {
+    author_name: Schema.Attribute.String & Schema.Attribute.Required;
+    book_cover: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    book_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    book_link: Schema.Attribute.String & Schema.Attribute.Required;
+    book_title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedDetails extends Struct.ComponentSchema {
   collectionName: 'components_shared_details';
   info: {
@@ -40,6 +67,18 @@ export interface SharedInterface extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedProductSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_product_sections';
+  info: {
+    displayName: 'product section';
+  };
+  attributes: {
+    product_hero_subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    product_hero_title: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Component<'shared.products', true>;
+  };
+}
+
 export interface SharedProducts extends Struct.ComponentSchema {
   collectionName: 'components_shared_products';
   info: {
@@ -52,6 +91,21 @@ export interface SharedProducts extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     product_link: Schema.Attribute.String & Schema.Attribute.Required;
     product_name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSubscriptionSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_subscription_sections';
+  info: {
+    displayName: 'subscription section';
+  };
+  attributes: {
+    subscriptions: Schema.Attribute.Component<'shared.subscriptions', true> &
+      Schema.Attribute.Required;
+    subscriptions_hero_subtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required;
+    subscriptions_hero_title: Schema.Attribute.String &
+      Schema.Attribute.Required;
   };
 }
 
@@ -84,10 +138,14 @@ export interface SharedUrl extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.book-section': SharedBookSection;
+      'shared.books': SharedBooks;
       'shared.details': SharedDetails;
       'shared.embed-section': SharedEmbedSection;
       'shared.interface': SharedInterface;
+      'shared.product-section': SharedProductSection;
       'shared.products': SharedProducts;
+      'shared.subscription-section': SharedSubscriptionSection;
       'shared.subscriptions': SharedSubscriptions;
       'shared.url': SharedUrl;
     }
